@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-MandrillMailer::Application.config.session_store :cookie_store, key: '_mandrill_mailer_session'
+MailerTest::Application.config.session_store :cookie_store, key: '_mailer_test_session'

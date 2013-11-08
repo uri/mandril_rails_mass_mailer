@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MandrillMailer::Application.config.secret_key_base = '8337758da963a06f92531445796a636e5dc0f195a6ac452df20c86c7e10b74de8e9982606c7c5ab317ac1a7cfbccdfe760c810820320c69e342194f97b96f445'
+MailerTest::Application.config.secret_key_base = 'cfb5b5980cc1a2e6ef526791c9a59129245bb1314ce590afab3fecfa430bc6814a187f551b2e0b829eeddc6573375a75c6c726abc6c2e64ea6ca5642fcc4a6cf'

@@ -11,7 +11,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module MandrillMailer
+module MailerTest
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -24,5 +24,17 @@ module MandrillMailer
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.autoload_paths += %W(#{Rails.root}/lib)
+
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => ENV['SMTP_USERNAME'],
+      :password  => ENV['SMTP_PASSWORD'], # SMTP password is any valid API key
+      :authentication => 'login', # Mandrill supports 'plain' or 'login'
+      :domain => 'yourdomain.com', # your domain to identify your server when connecting
+    }
   end
 end
